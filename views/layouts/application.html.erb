@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en" style="" >
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="author" content="Daley Services LLC aka PappaTD">
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Circle Of Men" %>">
+    <title><%= content_for?(:title) ? yield(:title) : "Circle Of Men" %></title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDy-XuocmuzZ-Yi1c96sG3oWWucqeyNG3Q"></script>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => 'reload' %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body >
+    <div id="wrapper" class="clearfix">
+      <!-- Header -->
+      <header id="header" class="header">
+        <%= render 'layouts/navigation' %>
+        <%= render 'layouts/navigation_links' %>
+      </header>
+      <div class="main-content">
+        <div class="container">
+          <div class="row pt-40">
+            <%= render 'layouts/messages' %>
+          </div>
+        </div>
+        <%= yield %>
+      </div>
+    </div>
+    <%= render 'layouts/footer' %>
+  </body>
+</html>

@@ -1,0 +1,60 @@
+<%= tag.div class: 'header-top bg-theme-colored2 sm-text-center' do %>
+  <%= tag.div class:'container' do %>
+    <%= tag.div class: "row" do %>
+      <%= tag.div class: "col-md-6" do %>
+        <%= tag.div class: "widget text-white" do  %>
+          <ul class="list-inline sm-text-center text-white">
+            <li class="m-0 pl-10 pr-10"> 
+              <a href="mailto:iemfellowshipconsortium@gmail.com?subject=Website Inquiry" target="_blank" class="text-white">
+                <i class="fa fa-envelope-o text-white mr-5">
+                </i>info@IEMFellowships.com
+              </a> 
+            </li>
+          </ul>
+        <% end %>
+      <% end %>  
+      <%= tag.div class: "col-md-4 pr-0" do %>
+        <%= tag.div class: "widget" do %>
+          <ul class="styled-icons icon-sm pull-right flip sm-pull-none sm-text-center mt-5">
+            <li>
+              <%= link_to 'https://twitter.com/IEM_Fellowships', class: "text-white", target: :_blank do %>
+                <i class="fa fa-twitter text-white"></i> 
+              <% end %>
+            </li>
+          </ul>
+        <% end %>  
+      <% end %>    
+      <%= tag.div class: 'col-md-2' do %>
+        <ul class='list-inline sm-pull-none sm-text-center text-right text-white mb-sm-20 mt-10'>
+          <% if logged_in? %>
+            <li class='m-0 pl-10'>
+              <%= link_to  logout_path, method: :delete, class: 'text-white' do %>
+                <i class="fa fa-edit mr-5 text-white"></i>
+                Logout |
+              <% end %>
+            </li>
+            <li class='m-0 pl-0 pr-5'>
+              <%= link_to  current_user, class: 'text-white' do %>
+                <i class="fa fa-user-o mr-5 text-white"></i>
+                Account
+              <% end %>
+            </li>
+          <% else %>
+            <li class='m-0 pl-10'> 
+              <%= link_to login_path, class: 'text-white' do %>
+                <i class="fa fa-user-o mr-5 text-white"></i>
+                Login |
+              <% end %>
+            </li>
+            <li class='m-0 pl-0 pr-10'> 
+              <%= link_to signup_path, class: 'text-white' do %>
+                <i class="fa fa-edit mr-5 text-white"></i>
+                Register
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+      <% end %>  
+    <% end %>    
+  <% end %>
+<% end %>

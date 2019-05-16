@@ -1,0 +1,31 @@
+<div class='header-nav' >
+  <div class='header-nav-wrapper navbar-scrolltofixed bg-white nav-lg'>
+    <div class='container' style="height: 90px;">
+      <nav id='menuzord-right' class="menuzord default no-bg">
+        <%= link_to  root_path, class: 'menuzord-brand switchable-logo pull-left flip mt-5 mb-5 pt-5' do %>
+          <%= image_tag('logo-wide-new.png', class: 'logo-default mt-15', alt: "") %>
+          <%= image_tag('logo-wide-new.png', class: 'logo-scrolled-to-fixed mt-15', alt: "") %>
+        <% end %>        
+        <ul class='menuzord-menu align-middle', id='navbar-highlight'>
+          <li><%= link_to 'Home', root_path, class: "btn menubtn btn-flat " + @homeactive.to_s %></li>
+          <li><%= link_to 'About IEM Fellowships', about_path, class: "btn menubtn btn-flat " + @aboutactive.to_s %></li>
+          <li><%= link_to 'Our Programs', programs_path, class: "btn menubtn btn-flat " + @programactive.to_s %></li>
+          <li><%= link_to 'Maps',  class: "btn menubtn btn-flat " + @mapactive.to_s + @gmapactive.to_s %>
+            <ul class="dropdown">
+              <li><%= link_to 'Programs', '/map/programs', class: "btn menubtn btn-flat "  %></li>
+              <li><%= link_to 'Projects', '/map/projects', class: "btn menubtn btn-flat "  %></li>
+            </ul>
+          </li>
+          <li><%= link_to 'Contact Us', new_visitor_path, class: "btn menubtn btn-flat " + @contactactive.to_s %></li>
+          <% if logged_in? %>
+            <% if current_user.admin? %>
+              <li><%= link_to 'Users', users_path, class: "btn menubtn btn-flat " %></li>
+              <li><%= link_to 'Events', events_path, class: "btn menubtn btn-flat" %></li>
+              <li><%= link_to 'Opportunities', opportunities_path, class: "btn menubtn btn-flat" %></li>
+            <% end %>
+          <% end %>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
